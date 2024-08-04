@@ -1,0 +1,15 @@
+﻿@model IEnumerable<SMS01.Models.Lecturer>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-md-12">
+    <h1 class="text-center alert alert-success">
+        <i class="fa-solid fa-users"></i> Lecturers history
+    </h1>
+</div>
+
+<div id="view-all-lecturers">
+    @await Html.PartialAsync("_ViewLecturers",Model)
+</div>

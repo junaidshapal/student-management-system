@@ -1,0 +1,35 @@
+﻿@model SMS01.Models.Course
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = null;
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="CreditHours" class="control-label"></label>
+                        <input asp-for="CreditHours" class="form-control" />
+                        <span asp-validation-for="CreditHours" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-2 rounded-0">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

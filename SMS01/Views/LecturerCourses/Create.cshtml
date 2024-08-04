@@ -1,0 +1,54 @@
+﻿@model SMS01.Models.LecturerCourse
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = null;
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="CourseId" class="control-label"></label>
+                        <input asp-for="CourseId" class="form-control" />
+                        @*<select asp-for="CourseId" class="form-control" asp-items="ViewBag.CourseId"></select>*@
+                        <span asp-validation-for="CourseId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="LecturerId" class="control-label"></label>
+                        @*<select asp-for="LecturerId" class="form-control" asp-items="ViewBag.LecturerId"></select>*@
+                        <input asp-for="LecturerId" class="form-control" />
+                        <span asp-validation-for="LecturerId" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="StartDate" class="control-label"></label>
+                        <input asp-for="StartDate" class="form-control" />
+                        <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="EndDate" class="control-label"></label>
+                        <input asp-for="EndDate" class="form-control" />
+                        <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-2 rounded-0">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

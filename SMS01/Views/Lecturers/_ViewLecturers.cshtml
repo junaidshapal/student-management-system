@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SMS01.Models.Lecturer>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CNIC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoleId)
+            </th>
+            <th>
+                <a class="btn btn-success rounded-0 text-white" onclick="showInPopup('@Url.Action("AddOrEdit","Lecturers", null, Context.Request.Scheme)','New Lecturer')">
+                    <i class="fa-solid fa-square-plus"></i> New
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Department)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CNIC)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleId)
+                </td>
+                <td>
+                    <a onclick="AddOrEdit(@item.LecturerId)" class="btn btn-warning rounded-0">
+                        <i class="fa-solid fa-pen"></i>
+                    </a>
+                    <a asp-action="Details" asp-route-id="@item.LecturerId" class="btn btn-info rounded-0">
+                        <i class="fa-solid fa-info"></i>
+                    </a>
+                    <form onsubmit="return DeleteLecturer(this);" class="d-inline" asp-action="Delete" asp-route-id="@item.LecturerId">
+                        <input id="" type="submit" value="Delete" class="btn btn-danger rounded-0" />
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

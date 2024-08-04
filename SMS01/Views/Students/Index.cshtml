@@ -1,0 +1,25 @@
+﻿@model IEnumerable<SMS01.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="col-md-12">
+    <h1 class="text-center alert alert-success">
+        <i class="fa-solid fa-users"></i> Students history
+    </h1>
+</div>
+
+<form asp-controller="Students" asp-action="Index">
+    <p>
+        <label>Search: </label>
+        <input type="text" name="SearchString" id="txtSearchString" />
+        <input class="btn btn-primary" type="button" value="Filter" onclick="Filter()" />
+    </p>
+</form>
+
+<div id="view-all-students">
+    @await Html.PartialAsync("_ViewAll",Model)
+</div>
+

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SMS01.Models.Course>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="col-md-12">
+    <h1 class="text-center alert alert-success">
+        <i class="fa-solid fa-users"></i> Courses history
+    </h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditHours)
+            </th>
+            <th>
+                @*<a asp-action="Create">Create New</a>*@
+                <a class="btn btn-success rounded-0 text-white" onclick="showInPopup('@Url.Action("Create","Courses", null, Context.Request.Scheme)','New Course')">
+                    <i class="fa-solid fa-square-plus"></i> New
+                </a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreditHours)
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                    <a class="btn btn-warning" asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
